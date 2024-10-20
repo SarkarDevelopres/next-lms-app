@@ -1,0 +1,68 @@
+.mainDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.imageDiv {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    width: 52%;
+    aspect-ratio: 1.7;
+}
+
+.detailsDiv {
+    width: 45%;
+}
+
+.detailsDiv h2 {
+    font-size: 2.2rem;
+    margin: 0px 0px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.detailsDiv  {
+    font-size: 1.2rem;
+}
+.descDiv h2{
+    font-size: 1.75rem;
+}
+.descDiv h3{
+    font-size: 1.3rem;
+}
+.descDiv p{
+    font-size: 10px;
+    margin-bottom: 0px;
+}
+.descDiv ul li{
+    font-size: 10px;
+}
+.publishedOn{
+    margin: 10px 0px;
+    font-weight: 500;
+}
+.priceBtnsDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: baseline;
+}
+
+.priceBtnsDiv p {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0px;
+}
+
+.btnDiv * {
+    font-size: 30px;
+    padding-left: 10px;
+}
+.btnDiv *:hover{
+    cursor: pointer;
+    color: rgb(154, 0, 0);
+}

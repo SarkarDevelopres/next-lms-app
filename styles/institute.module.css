@@ -1,0 +1,722 @@
+.mainDiv {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+
+.bodySection {
+    width: 82%;
+}
+
+.header {
+    background-image: linear-gradient(269deg, rgb(54 174 233) 10%, rgb(0, 23, 34) 50%);
+    padding: 10px 30px;
+    padding-left: 50px;
+    color: rgb(255, 255, 255);
+}
+
+.innerHeader {
+    display: flex;
+    position: relative;
+    top: 30px;
+}
+
+.secondHeader {
+    background-color: rgba(44, 139, 185, 1);
+    padding: 10px 30px;
+    color: rgb(255, 255, 255);
+}
+
+.mainDiv h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.headDetailsDiv {
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.headDetailsDiv h1 {
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.headDetailsDiv p {
+    font-size: 2rem;
+    margin: 10px 0px;
+}
+
+.header .normalHOne {
+    padding-left: 10px;
+}
+
+.header img {
+    width: 200px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.content {
+    padding-top: 50px;
+    padding-left: 40px;
+    padding-bottom: 30px;
+    padding-right: 40px;
+}
+.contentAbsolute{
+    padding: 40px;
+    position: absolute;
+    width: 60%;
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+    z-index: 10;
+}
+.greatMaskDiv{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0,0,0,0.4);
+    z-index: 10;
+}
+.instituteNameDetails h2 {
+    font-size: 2.7rem;
+    font-weight: 500;
+    margin: 0px;
+}
+
+.instituteDetails {
+    display: flex;
+}
+
+.instituteDetails p {
+    margin: 0px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.instituteDetails div:last-child {
+    padding-left: 30px;
+}
+
+.accountDetailsAndGraph {
+    padding: 50px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accountDetails,
+.addressDiv {
+    width: 50%;
+}
+
+.accountDetailsAndGraph li {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 7px 0px;
+}
+
+.dataUsedDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dataUsedDiv svg {
+    width: 120px;
+}
+
+.subscriptionPlan p {
+    margin: 5px 0px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+.subscriptionPlan button, .buttonDiv button{
+    width: 120px;
+    border-radius: 10px;
+    background-color: rgba(65, 185, 212, 1);
+    padding: 5px;
+    font-size: 1.2rem;
+    border: none;
+    color: rgb(255,255,255);
+}
+.subscriptionPlan button:hover, .buttonDiv button:hover{
+    cursor: pointer;
+    background-color: rgb(27, 108, 148);
+}
+.updateSection h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+.studentAddSection .detailsFieldsDiv p{
+    font-size: 1.5rem;
+}
+.studentAddSection h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+
+.detailsFieldsDiv {
+    margin-bottom: 20px;
+}
+
+.detailsFieldsDiv p,
+.continueDiv p {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.detailsFieldsDiv {
+    width: 32%;
+}
+
+.updateForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(159, 219, 223, 1);
+    width: 97%;
+}
+
+.input input {
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    outline: none;
+    background-color: transparent;
+    width: 98%;
+}
+
+.nameInput {
+    width: 70%;
+}
+
+.nameInput input {
+    width: 95%;
+}
+
+.phoneInput {
+    width: 29%;
+}
+
+.buttonDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.updateForm button{
+    width: 200px;
+    padding: 10px 5px;
+    font-size: 1.6rem;
+}
+.coursesBtn button{
+    width: 220px;
+    padding: 15px 10px;
+    font-size: 1.6rem;
+}
+.coursesBtn{
+    padding: 30px 0px;
+}
+.menu {
+    display: none;
+    position: absolute;
+    z-index: 4;
+    padding: 0px;
+    color: white;
+    border: none;
+    background-color: transparent;
+    right: 30px;
+    top: 70px;
+}
+
+.menu * {
+    font-size: 50px;
+}
+
+.coursesList *:last-child{
+    margin-bottom: 0px;
+}
+.coursesList h2{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.courseCreationDiv{
+    display: flex;
+    justify-content: space-between;
+}
+.titleAndDescriptionDiv,.addChapterAndPrice{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.formElement{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.noMargin{
+    margin-bottom: 0px;
+}
+.formElement label{
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+.formElement input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(204,204,204);
+    font-size: 1.2rem;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+}
+.quillOuterDiv{
+    height: 200px;
+    margin-bottom: 40px;
+}
+.chpaterQuill{
+    height: 160px !important;
+}
+.chapterDiv,.chapterEditableListDiv{
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 130px;
+}
+.chapterEditableListDiv{
+    height: 300px;
+}
+.thumbnailDiv{
+    background-color: rgb(231, 231, 231);
+    aspect-ratio: 1.7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+.thumbnailDiv svg{
+    font-size: 80px;
+    color: rgb(27, 108, 148);
+}
+.thumbnailDiv button{
+    padding: 10px;
+    width: 200px;
+    border: 1px solid rgb(0,0,0);
+    border-radius: 10px;
+    font-size: 1.3rem;
+}
+.thumbnailDiv img{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1.7;
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+.thumbnailDiv video{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1.7;
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+.addChapterBtn{
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    background-color: rgb(26, 26, 26);
+    color: rgb(255,255,255);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.thumbnailDiv .addChapterBtn{
+    width: 70%;  
+}
+.chapterDiv input{
+    width: 90%;
+    margin: 10px 10px 0px 10px;
+    box-sizing: border-box;
+}
+.chaptersList{
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding-bottom: 0px;
+}
+.chaptersList h3{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chapterComponent{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(255,255,255);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    margin: 5px 0px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.actionBtns{
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.actionBtns svg{
+    font-size: 25px;
+}
+.deleteDraftBtnDiv{
+    display: flex;
+    justify-content: space-between;
+}
+.deleteDraftBtnDiv button{
+    width: 45%;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(255,255,255);
+    font-size: 1.3rem;
+    border: none;
+    background-color: rgb(0, 23, 34);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.deleteDraftBtnDiv button svg{
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.uplopadBtn{
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    color: rgb(255,255,255);
+    font-size: 1.6rem;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(0, 23, 34);
+}
+
+
+.videoDiv{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.closeBtn{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    font-size: 25px;
+}
+.videoDiv .thumbnailDiv{
+    height: auto;
+    aspect-ratio: 1.7;
+}
+
+
+
+.studentCompDiv{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 25px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.studentCompDiv *{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.studentCompDiv span{
+    width: 20px;
+}
+.studentCompDiv .name{
+    width: 200px;
+}
+.studentCompDiv *:last-child{
+    font-size: 30px;
+}
+
+.detailsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.addSectionHeading{
+    display: flex;
+    align-items: center;
+}
+.addSectionHeading *:last-child{
+    padding-left: 10px;
+    font-size: 25px;
+    color: rgb(0,0,0,0.4);
+}
+.addSectionHeading *:last-child:hover{
+    color: rgb(0,0,0);
+}
+.addMultipleStudentInput{
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    border: 1px solid rgb(0,0,0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.addMultipleStudentInput label span{
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: rgb(0,0,0);
+    padding-left: 15px;
+    font-weight: 500;
+}
+.addMultipleStudentInput label{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+}
+.addMultipleStudentInput label:hover{
+    cursor: pointer;
+}
+.addMultipleStudentInput button{
+    width: 30%;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgba(65, 185, 212, 1);
+    color: rgb(255,255,255);
+    padding: 10px;
+    border: none;
+    font-size:1.3rem;
+
+}
+/* Courses Page */
+
+.viewMore {
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 1.75rem;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(65, 185, 212, 1);
+    letter-spacing: 1px;
+}
+
+.addMultipleStudentInput button:hover {
+    background-color: rgb(27, 108, 148);
+    cursor: pointer;
+}
+@media screen and (max-width: 1225px) {
+    .detailsFieldsDiv {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .header {
+        margin-top: -10px;
+    }
+
+    .mainDiv h1 {
+        font-size: 4rem;
+    }
+
+    .header img {
+        width: 200px;
+    }
+
+    .content {
+        padding-top: 10px;
+    }
+
+    .input {
+        width: 80%;
+    }
+
+    .input input {
+        width: 100%;
+    }
+
+    .detailsFieldsDiv p {
+        font-size: 2rem;
+    }
+
+    .continueDiv p {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    .bodySection {
+        width: 78%;
+    }
+
+    .input {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 905px) {
+    .detailsFieldsDiv {
+        width: 50%;
+    }
+
+    .content {
+        padding: 30px 20px;
+        padding-top: 10px;
+    }
+
+    .header {
+        margin-top: -15px;
+    }
+
+    .mainDiv h1 {
+        font-size: 3.2rem;
+    }
+
+    .header img {
+        width: 150px;
+    }
+}
+@media screen and (max-width: 875px) {
+    .courseCreationDiv{
+        flex-direction: column;
+    }
+    .addChapterAndPrice,.titleAndDescriptionDiv{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 840px) {
+    .bodySection {
+        width: 100%;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .header {
+        margin-top: 0px;
+    }
+
+    .innerHeader {
+        top: 15px;
+    }
+
+    .secondHeader {
+        padding-top: 38px;
+    }
+
+    .mainDiv h1 {
+        font-size: 2.8rem;
+        padding-left: 20px;
+        margin: auto 0px;
+        box-sizing: border-box;
+    }
+
+    .header img {
+        width: 100px;
+    }
+
+    .content {
+        padding-top: 10px;
+    }
+
+    .menu {
+        top: 45px;
+    }
+
+}
+
+@media screen and (max-width: 535px) {
+
+    .menu {
+        right: 15px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .detailsFieldsDiv {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        padding: 10px;
+        padding-top: 0px;
+    }
+
+    .secondHeader {
+        padding: 46px 10px 10px 10px;
+    }
+
+    .mainDiv h1 {
+        font-size: 2.2rem;
+    }
+
+    .normalHOne {
+        font-size: 2.8rem;
+        padding-left: 0px;
+    }
+
+    .content {
+        padding: 0px 10px 20px 10px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .mainDiv h1 {
+        width: 57%;
+    }
+}

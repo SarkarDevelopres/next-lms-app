@@ -1,0 +1,56 @@
+.coursePlayerMainDiv {
+    display: flex;
+}
+
+.currentChapterDisplayDiv {
+    width: 70%;
+}
+
+.videoPlayerDiv {
+    width: 100%;
+    /* aspect-ratio: 1.7; */
+    background-color: antiquewhite;
+}
+.videoPlayerDiv video{
+    width: 100%;
+    /* aspect-ratio: 1.7; */
+    display: block;
+    visibility: visible;
+}
+.chapterDetailsDiv{
+    padding: 20px;
+}
+.chapterDetailsDiv h3{
+    font-size: 2rem;
+}
+.chapterListDiv .accordianHeader button{
+    font-size: 20px !important;
+    background-color: rgb(255,255,255) !important;
+    /* outline: none; */
+}
+.chapterListDiv .accordianHeader button:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: rgb(255,255,255) !important;
+}
+
+
+
+.allChaptersDisplayDiv {
+    width: 30%;
+}
+
+.progressBarDiv {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.progressBarDiv progress{
+    width: 80%;
+}
+.progressBarDiv p{
+    font-size: 1.3rem;
+    font-weight: 500;
+}

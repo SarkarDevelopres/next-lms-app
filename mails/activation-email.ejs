@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .emailBody{
+            background-color: rgb(117, 177, 255);
+            color: rgb(0, 0, 0);
+            padding: 20px;
+
+        }
+        h1,h2{
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        p{
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="emailBody">
+        <h1>Welcome To Cosmetics!</h1>
+        <p>Welcome <%= user %>! We're excited to have you with us! Cosmetics is a site for all kinds of quality beauty products that enhance your natural look. We all have the right to look like a <b>star</b>! </p>
+        <h2>Your activation code is:</h2>
+        <h2><%= code %></h2>
+    </div>
+</body>
+</html>
