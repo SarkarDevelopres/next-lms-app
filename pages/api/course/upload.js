@@ -1,7 +1,7 @@
 import Course from "@/models/Course";
 import connectDB from "@/middleware/connectDB";
 import { v2 as cloudinary } from 'cloudinary'
-import multer from "multer";
+import { upload, uniqueFileName } from "@/utils/multerConfig";
 import { jwtDecode } from 'jwt-decode';
 import fs from 'fs';
 
@@ -10,22 +10,6 @@ export const config = {
     bodyParser: false,
   },
 };
-
-let uniqueFileName = ""; // Store the unique file name here
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./public/temp");
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Math.round(Math.random() * 1000);
-    uniqueFileName = file.fieldname + "-" + uniqueSuffix + "." + file.mimetype.split("/")[1];
-    cb(null, uniqueFileName);
-  },
-});
-
-const upload = multer({ storage });
-
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
@@ -39,16 +23,10 @@ const handler = async (req, res) => {
         });
       });
 
-      // Now you have access to the unique file name after the upload is completed.
-      // console.log("Unique file name:", uniqueFileName);
-      // console.log(filePath);
-      // Proceed to upload the file to Google Drive using `uniqueFileName` if needed.
-
-
       const decodedId = jwtDecode(req.body.InstituteIDToken);
       console.log("Decoded ID: " + decodedId);
       const mimetype = req.file.mimetype
-      const filePath = process.cwd() + "/public/temp/" + req.file.filename
+      const filePath = process.cwd() + "/public/temp/" + uniqueFileName
       const parsedCourseData = { ...JSON.parse(req.body.courseData) }
       const uploadFileName = `${parsedCourseData.Title}-${decodedId.id}`
 

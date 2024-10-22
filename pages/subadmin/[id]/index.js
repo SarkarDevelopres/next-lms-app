@@ -12,6 +12,7 @@ import { BiSolidPencil } from "react-icons/bi";
 import { CgMenuRound } from "react-icons/cg";
 import checkSession from '@/utils/checkSession';
 import InstitutetNav from '@/components/instittueComponents/InstituteNav';
+import { jwtDecode } from 'jwt-decode';
 function index() {
     const router = useRouter();
     const [showLoading, setShowLoading] = useState(true)
@@ -66,45 +67,44 @@ function index() {
         }
     }
     const fetchAccountDetails = async () => {
-        let sessionValid = checkSession('subAdminToken');
-        if (!sessionValid) {
-            alert("Session Expired !!");
-            router.push('/login');
+
+        let token = localStorage.getItem('subAminIDToken');
+        let request = await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/subadmin/fetchAccountDetails`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({ token: token })
+        })
+        let response = await request.json();
+        if (response.success === true) {
+            // Update the subAdminData state by merging the new data
+            setSubAdminData(prevData => ({
+                ...prevData,  // Keep the existing data
+                ...response.data,
+            }));
+            setShowLoading(false);
+            let courseListToken = localStorage.getItem("subAdminCourseListToken")
+            let courseList = jwtDecode(courseListToken);
+            let studentListToken = localStorage.getItem("subAdminStudentListToken")
+            let studentList = jwtDecode(studentListToken);
+            let planIDToken = localStorage.getItem("subAdminPlanIDToken")
+            let planID = jwtDecode(planIDToken);
+            setSubAdminData(prevData=>({
+                ...prevData,
+                Courses:courseList.courseList,
+                Students:studentList.studentList,
+                PlanId:planID.planId
+            }))
         }
         else {
-            let token  = localStorage.getItem('subAdminToken');
-            let request = await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/subadmin/fetchAccountDetails`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify({ token: token })
-            })
-            let response = await request.json();
-            if (response.success === true) {
-                // console.log(response.data.Address);
-                // Extract the subAdminDetails, studentIdList, and videoIdList from the response
-                const { subAdminDetails, studentIdList, videoIdList, subAdminListToken } = response.data;
-
-                // Update the subAdminData state by merging the new data
-                setSubAdminData(prevData => ({
-                    ...prevData,  // Keep the existing data
-                    ...subAdminDetails,  // Update with new subAdminDetails
-                    Students: studentIdList ? [...prevData.Students, ...studentIdList] : prevData.Students,  // Append studentIdList if exists
-                    Videos: videoIdList ? [...prevData.Videos, ...videoIdList] : prevData.Videos  // Append videoIdList if exists
-                }));
-                localStorage.setItem('subAdminListToken', subAdminListToken)
-                setShowLoading(false);
-            }
-            else {
-                alert(response.message);
-            }
+            alert(response.message);
         }
 
     }
     const doItLater = () => { }
     useEffect(() => {
-        let sessionValid = checkSession('subAdminToken')
+        let sessionValid = checkSession('subAminIDToken')
         if (sessionValid) {
             fetchAccountDetails();
         } else {
@@ -154,7 +154,6 @@ function index() {
                         <div className={styles.accountDetails}>
                             <li><span>{`Total Courses:`}</span><span>{subAdminData.Courses?.length ?? 0}</span></li>
                             <li><span>{`Total Students:`}</span><span>{subAdminData.Students?.length ?? 0}</span></li>
-                            <li><span>{`Total Videos:`}</span><span>{subAdminData.Videos?.length ?? 0}</span></li>
                             <li><span>{`Certificate Generated:`}</span><span>{subAdminData.Certificates?.length ?? 0}</span></li>
                         </div>
 
@@ -195,7 +194,7 @@ function index() {
                                     </>
                                 )
                             }
-                            <button>Buy Plan</button>
+                            <button>{subAdminData.PlanId != "None" ?"Upgrade Plan":"Buy Plan"}</button>
                         </div>
                     </div>
                     <div className={styles.updateSection}>

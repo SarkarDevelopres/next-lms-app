@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SignUpModal from './SignUpModal';
 import Loading from './Loading';
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ action }) {
   const router = useRouter();
@@ -34,7 +36,7 @@ function Login({ action }) {
   const login = async() => {
     const { email, password } = formData;
     if (!email || !password) {
-      alert('Enter Credentials !!');
+      toast.warning('Enter Credentials !!',{transition:Bounce});
     }
     else{
       setShowLoading(true);
@@ -47,9 +49,9 @@ function Login({ action }) {
       })
       let res = await a.json();
       if (res.success === true) {
-        localStorage.setItem('token',res.token);
-        alert(res.message);
-        setShowLoading(false);
+        localStorage.setItem('token',res.token);        
+        toast.success(`${res.message}`,{transition:Bounce});
+        
         router.push(`/user/${res.URLID}`);
       }
       else if(res.success === false){
@@ -58,6 +60,7 @@ function Login({ action }) {
       else {
         alert("There is a problem, Please try again!");
       }
+      setShowLoading(false)
     }
   };
 

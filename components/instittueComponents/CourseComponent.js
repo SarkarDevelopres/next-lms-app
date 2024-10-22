@@ -15,7 +15,7 @@ function CourseComponent({ id }) {
     })
     const editCourse = ()=>{
         localStorage.setItem('currentCourse',id);
-        let subadminIdToken = localStorage.getItem('subAdminToken');
+        let subadminIdToken = localStorage.getItem('subAminIDToken');
         let subAdminID = jwtDecode(subadminIdToken);
         router.push(`/subadmin/${subAdminID.id}/courses/addcourse`);
     }
@@ -32,8 +32,7 @@ function CourseComponent({ id }) {
                 <div className={styles.priceBtnsDiv}>
                     <p>{`$ ${courseData.Price}`}</p>
                     <div className={styles.btnDiv}>
-                        <MdModeEdit onClick={editCourse} />
-                        <MdDelete />
+                        <button onClick={editCourse} className={styles.editButton}>Edit Course <MdModeEdit/></button>
                     </div>
                 </div>
             </div>

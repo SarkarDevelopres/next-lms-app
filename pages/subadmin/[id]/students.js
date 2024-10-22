@@ -49,8 +49,8 @@ function students() {
             <InstitutetNav page={'students'} />
             <button className={styles.menu} id='instMenu' onClick={showNav}><CgMenuRound /></button>
             <section className={styles.bodySection}>
-                <div className={styles.header}>
-                    <h1>Students</h1>
+            <div className={styles.secondHeader}>
+                    <h1 className={styles.normalHOne}>Students</h1>
                 </div>
                 <div className={styles.coursesList}>
                     {studentList.map((e, index) => {

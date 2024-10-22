@@ -14,7 +14,7 @@ function VideoChapterComponent({index, name, id}) {
       <Accordion.Item eventKey={`${index}`}>
         <Accordion.Header className={styles.accordianHeader}>{name}</Accordion.Header>
         <Accordion.Body>
-          <p>{chapterData.Description}</p>
+          <p dangerouslySetInnerHTML={{ __html: chapterData.Description }}></p>
         </Accordion.Body>
       </Accordion.Item>
     )

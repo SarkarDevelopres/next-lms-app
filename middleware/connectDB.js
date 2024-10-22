@@ -11,7 +11,6 @@ const connectDB = handler => async (req, res) => {
             return handler(req, res);
         }
         await mongoose.connect(dbUrl, {
-            useNewUrlParser: true,
             useUnifiedTopology: true,
             dbName: 'LMS' // Specify the database name
         });

@@ -1,4 +1,6 @@
 import SubAdmin from "@/models/SubAdmin";
+import User from "@/models/User";
+import Course from "@/models/Course";
 import connectDB from "@/middleware/connectDB";
 import jwt from 'jsonwebtoken';
 
@@ -20,11 +22,30 @@ const handler = async (req, res) => {
             return res.status(400).json({ success: false, message: 'Wrong password' });
         }
 
+        let studentsIdList = await User.find({ SubAdminId: subAdmin._id }).select("_id");
+        let courseList = await Course.find({ InstituteID: subAdmin._id }).select('_id');
+
+
         // Use an object as the first argument to jwt.sign
-        const token = jwt.sign({ id: subAdmin._id }, process.env.ACCESS_TOKEN, { expiresIn: "120m" });
+        const subAminIDToken = jwt.sign({
+            id: subAdmin._id,
+        }, process.env.ACCESS_TOKEN, { expiresIn: "120m" });
+        const subAdminPlanIDToken = jwt.sign({
+            planId: subAdmin.PlanId,
+        }, process.env.ACCESS_TOKEN, { expiresIn: "120m" })
+        const subAdminStudentListToken = jwt.sign({
+            studentList: studentsIdList,
+        }, process.env.ACCESS_TOKEN, { expiresIn: "120m" })
+        const subAdminCourseListToken = jwt.sign({
+            courseList: courseList,
+        }, process.env.ACCESS_TOKEN, { expiresIn: "120m" })
 
         // Send the token and user info back to the client
-        return res.status(200).json({ success: true, message: `Welcome ${subAdmin.Name} !!`, token: token });
+        return res.status(200).json({
+            success: true, message: `Welcome ${subAdmin.Name} !!`, token: {
+                subAminIDToken, subAdminPlanIDToken, subAdminStudentListToken, subAdminCourseListToken
+            }, data: { id: subAdmin._id }
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: error.message });

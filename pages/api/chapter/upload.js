@@ -79,7 +79,7 @@ const handler = async (req, res) => {
                     VideoAssetID:asset_id
                 })
 
-                res.status(200).json({ success: true, message: "Succesfully Registered Chapter !!" });
+                res.status(200).json({ success: true, message: "Succesfully Updated Chapter !!" });
             } catch (error) {
                 console.error("Error during file upload:", error);
             }

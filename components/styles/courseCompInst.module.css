@@ -29,7 +29,7 @@
     font-size: 1.2rem;
 }
 .descDiv h2{
-    font-size: 1.75rem;
+    font-size: 1.75rem !important;
 }
 .descDiv h3{
     font-size: 1.3rem;
@@ -58,11 +58,65 @@
     margin: 0px;
 }
 
-.btnDiv * {
-    font-size: 30px;
-    padding-left: 10px;
+.btnDiv .editButton {
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: rgb(10,10,10);
+    color: white;
+    display: flex;
+    align-items: center;
 }
-.btnDiv *:hover{
+.editButton svg{
+    margin-left: 5px;
+}
+.btnDiv .editButton:hover{
     cursor: pointer;
-    color: rgb(154, 0, 0);
+    background-color: rgb(154, 0, 0);
+}
+
+@media screen and (max-width: 1250px) {
+    .mainDiv{
+        flex-direction: column;
+    }
+    .imageDiv {
+        width: 100%;
+        aspect-ratio: 1.7;
+    }
+    
+    .detailsDiv {
+        width: 100%;
+    }
+    .detailsDiv h2 {
+        font-size: 2.5rem;
+        margin-top: 15px;
+    }
+    .descDiv h2{
+        font-size: 2rem !important;
+    }
+    .descDiv h3{
+        font-size: 1.8rem;
+    }
+    .descDiv p{
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+    .descDiv ul li{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .descDiv h2{
+        font-size: 1.75rem !important;
+    }
+    .descDiv h3{
+        font-size: 1.3rem;
+    }
+    .descDiv p{
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+    .descDiv ul li{
+        font-size: 10px;
+    }
 }

@@ -12,7 +12,7 @@ const handler = async (req, res) => {
             throw new Error("Invalid token");
         }
         let userDetails = await User.findById(decodedId.id);
-        let courseList = await Course.find({ "InstituteID": userDetails.InstituteID }).select('_id');
+        let courseList = await Course.find({ "InstituteID": userDetails.InstituteID, Published: true }).select('_id');
         courseList = courseList.map(course => course._id.toString());
         const token = jwt.sign({ courseListData: courseList }, process.env.ACCESS_TOKEN, { expiresIn: "120m" });
         console.log(courseList)

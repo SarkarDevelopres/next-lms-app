@@ -6,6 +6,8 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 import { fetchChapterData } from '@/utils/fetchAPIs';
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function ChapterEditComp({ closeWindow, showLoading }) {
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }), []);
     const [chapterData, setChapterData] = useState({
@@ -53,12 +55,24 @@ function ChapterEditComp({ closeWindow, showLoading }) {
                 });
                 const response = await request.json();
                 if (response.success == true) {
-                    alert(response.message);
+                    toast.success(`${response.message}`, {
+                        transition: Bounce,
+                    });
                     showLoading(false)
                     closePopUpBox();
                 }
+                else{
+                    toast.error(`${response.message}`, {
+                        transition: Bounce,
+                    });
+                    showLoading(false)
+                }
             } catch (error) {
                 console.log(error.message);
+                toast.error(`${error.message}`, {
+                    transition: Bounce,
+                });
+                showLoading(false)
             }
         } else {
             const request = await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/chapter/update`, {
@@ -67,7 +81,9 @@ function ChapterEditComp({ closeWindow, showLoading }) {
                 });
                 const response = await request.json();
                 if (response.success == true) {
-                    alert(response.message);
+                    toast.success(`${response.message}`, {
+                        transition: Bounce,
+                    });
                     showLoading(false)
                     closePopUpBox();
                 }
@@ -115,7 +131,7 @@ function ChapterEditComp({ closeWindow, showLoading }) {
                                 {/* <img src={thumbnailImage} altText='Thumbnail Image' /> */}
                             </div>
                         </div>
-                        <button className={styles.uplopadBtn} onClick={() => uploadFile()}>Upload Chapter</button>
+                        <button className={styles.uplopadBtn} onClick={() => uploadFile()}>Update Chapter</button>
                     </div>
 
                 </div>

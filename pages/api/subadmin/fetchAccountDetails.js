@@ -17,23 +17,11 @@ const handler = async (req, res) => {
 
         const id = decoded.id;
         let subAdmin = await SubAdmin.findById(id);
-        let studentsIdList = await User.find({SubAdminId:id}).select("_id");
-        let videoIdList = await Video.find({SubAdminId:id}).select("_id");
-        let courseList = await Course.find({InstituteID:decoded.id}).select('_id');
 
         if (subAdmin) {
-            let subAdminListToken = jwt.sign({ 
-                planId:subAdmin.PlanId,
-                studentIdList: studentsIdList,
-                courseIdList: courseList }, 
-                process.env.ENCRYTED_DATA_TOKEN, { expiresIn: "120m" }
-            );
             res.status(200).json({ 
                 success: true, 
-                data: {subAdminDetails:subAdmin, 
-                    studentList:studentsIdList,
-                    videoList:videoIdList, 
-                    subAdminListToken:subAdminListToken} 
+                data: subAdmin
                 }
             );
         } else {

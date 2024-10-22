@@ -4,7 +4,7 @@ import styles from '../../../styles/student.module.css'
 import { BiSolidPencil } from "react-icons/bi";
 import { useRouter } from 'next/router';
 import { CgMenuRound } from "react-icons/cg";
-import { fetchCourseListForInstituteID, fetchUserDetails } from '@/utils/fetchAPIs';
+import { fetchCourseListForUser, fetchUserDetails } from '@/utils/fetchAPIs';
 function Student() {
     const router = useRouter();
     const [mainImg, setMainImg] = useState('')
@@ -42,7 +42,7 @@ function Student() {
         let token = localStorage.getItem("token");
         if(token){
             fetchUserDetails(token, setUserData);
-            fetchCourseListForInstituteID(token)
+            fetchCourseListForUser(token)
         }
     }, [router.query.id])
 
@@ -105,7 +105,7 @@ function Student() {
                                 </div>
                             </div>
                         </div>
-                        <button className={styles.viewMore}>Update</button>
+                        <button className={styles.viewMore}>Update Credentials</button>
                     </div>
                     <div className={styles.continueDiv}>
                         <p>Continue Watching</p>

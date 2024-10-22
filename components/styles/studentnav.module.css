@@ -38,17 +38,17 @@
 
 
 
-@media screen and (max-width: 1220px) {
+@media screen and (max-width: 1288px) {
     .mainDiv a span,.mainDiv button{
         font-size: 2rem;
     }
 }
-@media screen and (max-width: 945px) {
+@media screen and (max-width: 1050px) {
     .mainDiv a span, .mainDiv button{
         padding: 20px 15px;
     }
 }
-@media screen and (max-width: 925px) {
+@media screen and (max-width: 975px) {
     .mainDiv{
         width: 22%;
     }

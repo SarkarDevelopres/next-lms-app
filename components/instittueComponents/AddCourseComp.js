@@ -5,11 +5,10 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 import { FaRegImage } from "react-icons/fa6";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { jwtDecode } from 'jwt-decode';
-const path = require('path');
-// const fs = require('fs');
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function AddCourseComp({ closeWindow, showLoading }) {
+function AddCourseComp({ closeWindow, showLoading, hideLoading }) {
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }), []);
     const [thumbnailImage, setThumbnailImage] = useState({
         name: '',
@@ -44,14 +43,13 @@ function AddCourseComp({ closeWindow, showLoading }) {
         }
     };
     const registerCourse = async () => {
-        showLoading(true);
-        let InstituteIDToken = localStorage.getItem('subAdminToken');
-        let subAdminListToken = localStorage.getItem('subAdminListToken');
+        showLoading();
+        let subAdminToken = localStorage.getItem('subAminIDToken');
 
         const formData = new FormData();
         formData.append('courseData', JSON.stringify(courseData)); // Convert courseData to string
         formData.append('thumbnailImage', thumbnailImage); // Append the actual file
-        formData.append('InstituteIDToken', JSON.stringify(InstituteIDToken));
+        formData.append('InstituteIDToken', JSON.stringify(subAdminToken));
 
         // console.log(formData);
 
@@ -63,36 +61,19 @@ function AddCourseComp({ closeWindow, showLoading }) {
 
             let response = await request.json();
             if (response.success) {
-                // Handle success and update tokens if needed
-                let courseListData = await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/course/fetchCourseList`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json;charset=utf-8'
-                    },
-                    body: JSON.stringify({ InstituteIDToken, subAdminListToken })
-                });
-                let newResponse = await courseListData.json();
-                if (newResponse.success) {
-                    localStorage.removeItem('subAdminListToken');
-                    localStorage.setItem('subAdminListToken', newResponse.tokenData);
+                    localStorage.setItem('updatedCourseList', "true");
+                    toast.success(`${response.message}`,{transition:Bounce});
+                    closeWindow()
+                    router.reload();
                 } else {
-                    alert("There was a problem retrieving data! Please Re-Login!");
-                    localStorage.clear();
-                    router.push('/login');
+                    toast.error("There was a problem retrieving data!",{transition:Bounce});
+                    router.reload();
                 }
-                alert(response.message);
-                showLoading(false);
-                closeWindow();
-                router.reload();
-            } else {
-                alert("There was a technical problem, please try again!!");
-                showLoading(false);
-            }
         } catch (error) {
             console.error("Error while registering course:", error);
-            alert("An error occurred. Please try again.");
-            showLoading(false);
+            toast.error("An error occurred. Please try again.",{transition:Bounce});
         }
+        hideLoading();
     };
 
 

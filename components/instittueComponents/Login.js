@@ -2,7 +2,8 @@ import { React, useState } from 'react';
 import styles from '../../styles/login.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import SignUpModal from '../SignUpModal';
+import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading';
 import SignUpInstituteModal from './SignUpInstituteModal';
 
@@ -13,7 +14,7 @@ function InstituteLogin({ action }) {
     const [showLoading, setShowLoading] = useState(false);
     // Combined state for both login and signup
     const [formData, setFormData] = useState({
-        name:'',
+        name: '',
         phone: '',
         email: '',
         password: '',
@@ -33,7 +34,10 @@ function InstituteLogin({ action }) {
     const login = async () => {
         const { email, password } = formData;
         if (!email || !password) {
-            alert('Enter Credentials !!');
+            toast.warning('Enter Credentials !!', {
+                transition: Bounce,
+            });
+
         }
         else {
             setShowLoading(true)
@@ -46,17 +50,28 @@ function InstituteLogin({ action }) {
             })
             let res = await a.json();
             if (res.success === true) {
-                localStorage.setItem('subAdminToken', res.token);
+                localStorage.setItem('subAminIDToken', res.token.subAminIDToken);
+                localStorage.setItem('subAdminPlanIDToken', res.token.subAdminPlanIDToken);
+                localStorage.setItem('subAdminStudentListToken', res.token.subAdminStudentListToken);
+                localStorage.setItem('subAdminCourseListToken', res.token.subAdminCourseListToken);
+
+                toast.success(`${res.message}`, {
+                    transition: Bounce,
+                });
                 setShowLoading(false)
-                alert(res.message);
-                router.push('/subadmin/12');
+                router.push(`/subadmin/${res.data.id}`);
             }
             else if (res.success === false) {
-                alert("Wrong Email or Password !!");
-                console.log(res.message);
+                toast.error("Wrong Email or Password !!", {
+                    transition: Bounce,
+                });
+                setShowLoading(false)
             }
             else {
-                alert("There is a problem, Please try again!");
+                toast.error("There is a problem, Please try again!", {
+                    transition: Bounce,
+                });
+                setShowLoading(false)
             }
         }
     };
@@ -64,7 +79,9 @@ function InstituteLogin({ action }) {
     const signUp = async () => {
         const { email, password, name, phone, confirmPassword } = formData;
         if (!email || !password || !name || !phone || !confirmPassword) {
-            alert('Enter All Credentials !!');
+            toast.warning('Enter All Credentials !!', {
+                transition: Bounce,
+            });
         }
         else {
             setShowLoading(true)
@@ -78,18 +95,22 @@ function InstituteLogin({ action }) {
                     Email: email,
                     Phone: phone,
                     Password: password,
-                    PlanId:'None'
+                    PlanId: 'None'
                 })
             })
             let res = await a.json();
             if (res.success === true) {
-                alert(res.message);
+                toast.success(`${res.message}`, {
+                    transition: Bounce,
+                });
                 setShowModal(true);
                 setActivation(res.activationToken);
                 setShowLoading(false)
             }
             else {
-                alert(res.message);
+                toast.error(`${res.message}`, {
+                    transition: Bounce,
+                });
             }
         }
     }
@@ -106,12 +127,16 @@ function InstituteLogin({ action }) {
         let response = await request.json();
         if (response.success == true) {
             setShowLoading(false);
-            alert('Successfully Registered!!');
+            toast.success('Successfully Registered!!', {
+                transition: Bounce,
+            });
             setShowModal(false);
             router.push('/login');
         } else {
             setShowLoading(false);
-            alert(res.message);
+            toast.success(`${res.message}`, {
+                transition: Bounce,
+            });
         }
     }
     // JSX for login or signup fields

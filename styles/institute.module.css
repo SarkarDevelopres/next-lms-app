@@ -24,10 +24,19 @@
 
 .secondHeader {
     background-color: rgba(44, 139, 185, 1);
+    background-image: linear-gradient(300deg, rgb(4, 41, 59) 30%, rgba(44, 139, 185, 1) 60%);
     padding: 10px 30px;
+    padding-top: 50px;
     color: rgb(255, 255, 255);
 }
-
+.secondHeader .normalHOne {
+    font-size: 4rem;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.header .normalHOne {
+    padding-left: 10px;
+}
 .mainDiv h1 {
     font-size: 4rem;
     font-weight: 500;
@@ -143,7 +152,7 @@
     font-size: 1.1rem;
 }
 .subscriptionPlan button, .buttonDiv button{
-    width: 120px;
+    width: 150px;
     border-radius: 10px;
     background-color: rgba(65, 185, 212, 1);
     padding: 5px;
@@ -553,7 +562,298 @@
     background-color: rgb(27, 108, 148);
     cursor: pointer;
 }
-@media screen and (max-width: 1225px) {
+
+@media screen and (max-width: 1320px) {
+    .viewMore {
+        width: 40%;
+    }
+
+    .detailsFieldsDiv {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 1269px) {
+    .videosList{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+
+    /* .header {
+        margin-top: -10px;
+    } */
+    .content {
+        padding-top: 30px;
+    }
+
+    .input input {
+        width: 100%;
+    }
+
+    .continueDiv p {
+        font-size: 2.2rem;
+    }
+
+    .viewMore {
+        width: 50%;
+    }
+    .accountDetailsAndGraph{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .header img {
+        width: 200px;
+    }
+
+    .mainDiv h1 {
+        font-size: 3.5rem;
+    }
+
+    .headDetailsDiv p {
+        font-size: 1.4rem;
+    }
+
+    .input input {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    .bodySection {
+        width: 78%;
+    }
+}
+
+@media screen and (max-width: 905px) {
+
+    .content {
+        padding: 30px 20px;
+        padding-top: 10px;
+    }
+
+    /* 
+    .header {
+        margin-top: -15px;
+    } */
+}
+
+@media screen and (max-width: 840px) {
+    .bodySection {
+        width: 100%;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .header img {
+        width: 180px;
+    }
+
+    .headDetailsDiv {
+        padding-left: 25px;
+    }
+
+    .headDetailsDiv p {
+        margin: 5px 0px;
+    }
+
+    .mainDiv h1 {
+        margin-top: 5px;
+        font-size: 3rem;
+    }
+
+    .innerHeader {
+        top: 25px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .instituteDetails{
+        flex-direction: column;
+    }
+    .addressDiv{
+        width: 100%;
+    }
+    .instituteDetails div:last-child{
+        padding-left: 0px;
+    }
+    .accountDetails{
+        width: auto;
+    }
+    .accountDetails li span{
+        padding-right: 10px;
+    }
+}
+@media screen and (max-width: 650px) {
+
+    .header {
+        margin-top: 0px;
+        padding: 10px 15px;
+        padding-top: 0px;
+    }
+
+    .innerHeader {
+        top: 15px;
+    }
+
+    .mainDiv h1 {
+        font-size: 2.8rem;
+        margin: auto 0px;
+        box-sizing: border-box;
+    }
+    .header img {
+        width: 150px;
+    }
+
+    .content {
+        padding-top: 10px;
+    }
+
+    .updateSection h2 {
+        font-size: 2.5rem;
+
+    }
+
+    .viewMore {
+        width: 60%;
+    }
+
+}
+
+/* 
+@media screen and (max-width: 535px) {
+
+    
+} */
+@media screen and (max-width: 560px) {
+    .menu {
+        right: 15px;
+    }
+
+    .headDetailsDiv p {
+        font-size: 1.2rem;
+    }
+
+    .detailsFieldsDiv {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        padding: 10px;
+        padding-top: 0px;
+        margin-top: -10px;
+    }
+
+    /* .secondHeader{
+        padding: 46px 10px 10px 10px;
+    } */
+
+    .mainDiv h1 {
+        font-size: 2.2rem;
+    }
+
+    .headDetailsDiv {
+        padding-top: 15px;
+    }
+    .input {
+        width: 100%;
+        padding: 5px 5px;
+    }
+
+    .updateSection h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .detailsFieldsDiv p {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .viewMore {
+        width: 70%;
+        font-size: 1.5rem;
+    }
+
+    /* .content {
+        padding: 0px 10px 20px 10px;
+    } */
+}
+
+@media screen and (max-width: 484px) {
+    .instituteDetails p{
+        font-size: 1.2rem;
+    }
+    .secondHeader .normalHOne {
+        font-size: 3rem;
+    }
+    .menu {
+        top: 45px;
+    }
+
+    .mainDiv h1 {
+        font-size: 2rem;
+    }
+
+    /* .innerHeader{
+        padding-top: 10px;
+    } */
+    .menu {
+        right: 0px;
+    }
+
+    /* .menu svg{
+        font-size: 40px;
+    } */
+    .headDetailsDiv {
+        padding-top: 5px;
+        padding-left: 5px;
+        width: 60%;
+        box-sizing: border-box;
+    }
+
+    .headDetailsDiv p {
+        font-size: 1rem;
+    }
+
+    .header {
+        padding-bottom: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .secondHeader{
+        padding-top: 38px;
+        padding-left: 10px;
+    }
+
+    .header img {
+        width: 110px;
+    }
+
+    .viewMore {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* @media screen and (max-width: 1225px) {
     .detailsFieldsDiv {
         width: 50%;
     }
@@ -719,4 +1019,4 @@
     .mainDiv h1 {
         width: 57%;
     }
-}
+} */
