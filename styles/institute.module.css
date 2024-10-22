@@ -415,6 +415,7 @@
 .deleteDraftBtnDiv{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 .deleteDraftBtnDiv button{
     width: 45%;
@@ -571,11 +572,17 @@
     .detailsFieldsDiv {
         width: 48%;
     }
+    .contentAbsolute{
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 1269px) {
     .videosList{
         justify-content: center;
+    }
+    .contentAbsolute{
+        width: 75%;
     }
 }
 
@@ -601,6 +608,9 @@
     }
     .accountDetailsAndGraph{
         flex-wrap: wrap;
+    }
+    .contentAbsolute{
+        width: 85%;
     }
 }
 
@@ -641,6 +651,14 @@
     } */
 }
 
+@media screen and (max-width: 850px) {
+    .courseCreationDiv{
+        flex-direction: column;
+    }
+    .titleAndDescriptionDiv, .addChapterAndPrice, .videoDiv{
+        width: 100%;
+    }
+}
 @media screen and (max-width: 840px) {
     .bodySection {
         width: 100%;
@@ -783,6 +801,18 @@
         font-size: 1.5rem;
     }
 
+    .deleteDraftBtnDiv button{
+        font-size: 1rem;
+        align-items: center;
+    }
+    .deleteDraftBtnDiv button svg{
+        font-size: 20px;
+    }
+    .contentAbsolute{
+        width: 95%;
+        padding: 10px;
+    }
+
     /* .content {
         padding: 0px 10px 20px 10px;
     } */
@@ -841,6 +871,12 @@
     .viewMore {
         width: 100%;
         font-size: 1.2rem;
+    }
+    .deleteDraftBtnDiv button{
+        width: 49%;
+    }
+    .videoDiv, .noMargin{
+        margin-top: 25px;
     }
 }
 

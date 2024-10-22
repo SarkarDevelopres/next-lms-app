@@ -56,9 +56,11 @@ function Login({ action }) {
       }
       else if(res.success === false){
         alert("Wrong Email or Password !!");
+        toast.error("Wrong Email or Password !!",{transition:Bounce})
       }
       else {
         alert("There is a problem, Please try again!");
+        toast.error("There is a problem, Please try again!",{transition:Bounce})
       }
       setShowLoading(false)
     }
@@ -67,7 +69,8 @@ function Login({ action }) {
   const signUp = async() => {
     const { email, password, firstName, lastName, phone, instituteCode, confirmPassword } = formData;
     if (!email || !password || !firstName ||!lastName ||!phone ||!confirmPassword||!instituteCode) {
-      alert('Enter All Credentials !!');
+      alert();
+      toast.warning('Enter All Credentials !!',{transition:Bounce})
     }
     else{
       setShowLoading(true)
@@ -87,14 +90,14 @@ function Login({ action }) {
       })
       let res = await a.json();
       if (res.success === true) {
-        alert(res.message.user);
-        alert(res.message.institute);
+        toast.success(`${res.message.user}`,{transition:Bounce})
+        toast.success(`${res.message.institute}`,{transition:Bounce})
         setShowModal(true);
         setActivation(res.activationToken);
         setShowLoading(false)
       }
       else{
-        alert(res.message);
+        c
         setShowLoading(false)
       }
     }
@@ -112,12 +115,13 @@ function Login({ action }) {
       let response = await request.json();
       if (response.success == true) {
         setShowLoading(false);
-        alert('Successfully Registered!!');
+        toast.success('Successfully Registered!!',{transition:Bounce})
+        
         setShowModal(false);
         router.push('/user/login');
       } else {
         setShowLoading(false);
-        alert(res.message);
+        toast.error(`${res.message}`,{transition:Bounce})
       }
   }
   // JSX for login or signup fields

@@ -250,3 +250,18 @@
     border: none;
     background-color: rgb(0, 23, 34);
 }
+
+@media screen and (max-width: 840px) {
+    .titleAndDescriptionDiv{
+        flex-direction: column;
+        width: fit-content;
+    }
+    .contentDiv, .imageDiv{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 484px) {
+    .imageDiv{
+        margin-top: 25px;
+    }
+}

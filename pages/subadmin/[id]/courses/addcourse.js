@@ -13,7 +13,7 @@ import { Bounce, Slide, Zoom, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-export function ChapterComponent({ id,index, name, setShowChapterEditComp, setShow, setModal }) {
+export function ChapterComponent({ id, index, name, setShowChapterEditComp, setShow, setModal }) {
     const router = useRouter();
     const editChapter = () => {
         localStorage.setItem("currentChapterID", id);
@@ -32,7 +32,7 @@ export function ChapterComponent({ id,index, name, setShowChapterEditComp, setSh
     }
     return (
         <div className={styles.chapterComponent}>
-            <span>{index+1}</span>
+            <span>{index + 1}</span>
             <span>{name}</span>
             <div className={styles.actionBtns}>
                 <MdModeEdit onClick={editChapter} />
@@ -202,7 +202,7 @@ function addcourse() {
         fetchCourseData(courseID, setCourseData);
         fetchChapterList(courseID, setChapterList);
     }
-    const deleteCourseSetup = ()=>{
+    const deleteCourseSetup = () => {
         setShow(true);
         setModal({
             type: 'course',
@@ -269,12 +269,9 @@ function addcourse() {
                     </Modal.Footer>
                 </Modal>
             }
-            <button className={styles.menu} id='instMenu' onClick={showNav}><CgMenuRound /></button>
             <section className={styles.bodySection} style={{ width: '100%' }}>
-                <div className={styles.header}>
-                    <div className={styles.header}>
-                        <h1>Edit Course</h1>
-                    </div>
+                <div className={styles.secondHeader}>
+                    <h1 className={styles.normalHOne}>Edit Course</h1>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.courseCreationDiv}>
