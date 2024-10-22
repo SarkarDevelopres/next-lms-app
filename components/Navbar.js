@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.mainNavbar}>
-        <h2>Learning World</h2>
+        <h2>EduVoy-LMS</h2>
         <div className={styles.navLinks}>
           <Link href={"/"}>Home</Link>
           <Link href={"/plans"}>Plans</Link>
