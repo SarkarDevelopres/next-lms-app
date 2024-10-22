@@ -30,6 +30,7 @@ function index() {
             Country: 'India',
             Pincode: '789223'
         },
+        InstituteCode:32987,
         PlanId: 'No Plan Purchased',
         Courses: [],
         Students: [],
@@ -152,6 +153,7 @@ function index() {
                     </div>
                     <div className={styles.accountDetailsAndGraph}>
                         <div className={styles.accountDetails}>
+                            <li><span>{`Institute Code:`}</span><span>{subAdminData.InstituteCode}</span></li>
                             <li><span>{`Total Courses:`}</span><span>{subAdminData.Courses?.length ?? 0}</span></li>
                             <li><span>{`Total Students:`}</span><span>{subAdminData.Students?.length ?? 0}</span></li>
                             <li><span>{`Certificate Generated:`}</span><span>{subAdminData.Certificates?.length ?? 0}</span></li>
