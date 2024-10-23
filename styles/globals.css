@@ -24,6 +24,11 @@ body{
   border: 1px solid rgb(0,0,0) !important;
   color: white !important;
 }
+.faqAccordianHeader button{
+  font-size: 1.6rem !important;
+  font-weight: 500;
+  padding: 30px 20px;
+}
 /* .accordion{
   background-color: transparent !important;
   border: 2px solid white !important;
@@ -83,4 +88,27 @@ body{
 #description .ql-container{
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+
+.noPage{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(100deg, rgb(255,255,255) 30%, rgb(190 228 234) 60%);
+}
+.noPage h1{
+  margin-bottom: 15px;
+  font-size: 3rem;
+}
+@media screen and (max-width: 550px) {
+  .noPage h1{
+    font-size: 2.5rem;
+  }
+  .faqAccordianHeader button{
+    font-size: 1.3rem !important;
+  }
 }

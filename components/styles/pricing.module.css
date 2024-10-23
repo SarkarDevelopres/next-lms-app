@@ -64,7 +64,7 @@
 }
 @media screen and (max-width: 990px) {
     .cardMain{
-        width: 300px;
+        width: 320px;
     }
     .cardMain:last-child{
         margin-top: 30px;

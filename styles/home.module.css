@@ -393,15 +393,15 @@
       padding: 30px;
   }
 
+  
+  .homeMain h2 {
+    font-size: 2.5rem !important;
+  }
+  
   .cause h2 {
       font-size: 2rem;
       margin-bottom: 15px;
   }
-
-  .services h2 {
-      font-size: 2.5rem;
-  }
-
   .servicesContent img {
       display: none;
   }
@@ -419,7 +419,6 @@
   }
 
   .capabilities h2 {
-      font-size: 2.8rem;
       text-align: center;
   }
 
@@ -446,8 +445,8 @@
 }
 
 @media screen and (max-width: 520px) {
-  .services h2 {
-      font-size: 2rem;
+  .homeMain h2 {
+      font-size: 2rem !important;
   }
 
   .servicesText h3 {
